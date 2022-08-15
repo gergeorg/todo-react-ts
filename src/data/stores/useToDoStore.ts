@@ -31,13 +31,13 @@ StateCreator<T> => (set, get, api) => config((nextState, ...args) => {
 
 const getCurrentState = () => {
 	try {
-		const currentState = (JSON.parse(window.localStorage.getItem('tasks') || '[]')) as Task[]
+		const currentState = (JSON.parse(window.localStorage.getItem('tasks') || '[]'));
 		return currentState
 	} catch (err) {
 		return window.localStorage.setItem('tasks' ,'[]')
 	}
 
-	return []
+	return [];
 }
 
 export const useToDoStore = create<TodoStore>(localStorageUpdate((set, get) => ({
